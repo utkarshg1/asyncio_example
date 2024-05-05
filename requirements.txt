@@ -3,3 +3,4 @@ aiohttp
 numpy
 pandas
 streamlit
+yfinance
