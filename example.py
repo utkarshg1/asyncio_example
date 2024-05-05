@@ -15,10 +15,9 @@ async def main():
     a = np.random.normal(loc=10, scale=1, size=1000)
     tasks = []
     for i in a:
-        task = asyncio.create_task(get_squares(i))
-        tasks.append(task)
-    for j in tasks:
-        await j
+        tasks.append(asyncio.create_task(get_squares(i)))
+    b = await asyncio.gather(*tasks)
+    print(b)
     print('Done!')
     t2 = time.time()
     print(f'Time required to complete the task : {(t2-t1):.2f} s')
